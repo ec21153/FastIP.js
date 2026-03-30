@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ FastIP.js
+![](./pics/intro.png)
 
 **Multi-source public IP detection client-side library**
 
