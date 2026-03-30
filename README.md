@@ -1,6 +1,6 @@
 <div align="center">
 
-![](./pics/intro.png)
+<img src="./pics/intro.png" width="80%" />
 
 **Multi-source public IP detection client-side library**
 
@@ -12,7 +12,7 @@ no backend, no API keys, no dependencies. Works on any static site.
 [![No Dependencies](https://img.shields.io/badge/Dependencies-0-brightgreen.svg)](#)
 [![jsDelivr](https://img.shields.io/badge/cdn-jsDelivr-e84d3d?logo=jsdelivr&logoColor=white)](https://cdn.jsdelivr.net/gh/DosX-dev/FastIP.js@latest/src/FastIP.js)
 
-**[🌍 Live Demo — ip.dosx.su](https://ip.dosx.su/)**
+**[🌍 Live Demo — ip.dosx.su](https://ip.dosx.su/)** &nbsp;·&nbsp; **[📄 Standalone Demo — demo/index.html](demo/index.html)**
 
 </div>
 
@@ -108,6 +108,9 @@ Grab [`src/FastIP.js`](src/FastIP.js) and serve it from your own origin:
 ```
 
 **[→ See it live at ip.dosx.su](https://ip.dosx.su/)**
+
+> 📂 A fully self-contained standalone demo is available at [`demo/index.html`](demo/index.html).  
+> Open it directly in a browser — no server needed. Demonstrates both `getPublicIP()` and `getDualStack()` with a live UI.
 
 ---
 
